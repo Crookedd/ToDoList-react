@@ -4,7 +4,7 @@ import Task from './Task';
 const TaskList = ({ tasks, deleteTask }) => {
   return (
     <div className="task_section" id="taskSection">
-      <hr className="top_line" />
+      {tasks.length === 0 && <hr className="top_line" />}
       {tasks.length === 0 ? (
         <p className="no_tasks" id="noTasksMessage">No tasks</p>
       ) : (
@@ -12,7 +12,7 @@ const TaskList = ({ tasks, deleteTask }) => {
           <Task key={task.id} task={task} deleteTask={deleteTask} />
         ))
       )}
-      <hr className="top_line" />
+      {tasks.length === 0 && <hr className="top_line" />}
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import ButtonContainer from './ButtonContainer';
 
 const Task = ({ task, deleteTask }) => {
   const taskDiv = useRef(null);
@@ -18,7 +17,6 @@ const Task = ({ task, deleteTask }) => {
       <button className="delete_button" onClick={handleDelete}>
         &times;
       </button>
-      <ButtonContainer task={task} taskDiv={taskDiv.current} />
     </div>
   );
 };

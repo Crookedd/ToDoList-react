@@ -4,10 +4,10 @@ const ConfirmationModal = ({ onConfirm, onCancel }) => {
   return (
     <div id="confirmationModal" className="modal">
       <div className="modal_content">
-        <h4>Удалить эту задачу?</h4>
+        <h4>Delete this task?</h4>
         <div className="modal_buttons">
-          <button className="confirm_button" onClick={onConfirm}>Да</button>
-          <button className="cancel_button" onClick={onCancel}>Нет</button>
+          <button className="confirm_button" onClick={onConfirm}>Yes</button>
+          <button className="cancel_button" onClick={onCancel}>No</button>
         </div>
       </div>
     </div>
