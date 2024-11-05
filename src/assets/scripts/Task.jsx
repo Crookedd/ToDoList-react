@@ -29,6 +29,8 @@ const Task = ({ task, deleteTask, updateTask}) => {
     setEditModalOpen(false);
   };
 
+  
+
   return (
     <div
       className={`task ${isExpanded ? 'expanded' : ''}`}
