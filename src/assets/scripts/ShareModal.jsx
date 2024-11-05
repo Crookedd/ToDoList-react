@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShareManager = ({ task, onClose }) => {
+const ShareModal = ({ task, onClose }) => {
   const copyTaskToClipboard = () => {
     const taskText = `Задача: ${task.title}\nОписание: ${task.about}`;
     navigator.clipboard.writeText(taskText)
@@ -29,16 +29,24 @@ const ShareManager = ({ task, onClose }) => {
 
   return (
     <div className="modal" onClick={onClose}>
-      <div className="modal_content" onClick={(e) => e.stopPropagation()}>
-        <h2>Поделиться задачей</h2>
-        <button onClick={copyTaskToClipboard}>Скопировать в буфер обмена</button>
-        <button onClick={shareOnTelegram}>Поделиться в Telegram</button>
-        <button onClick={shareOnWhatsApp}>Поделиться в WhatsApp</button>
-        <button onClick={shareOnVK}>Поделиться в VK</button>
-        <button onClick={onClose}>Закрыть</button>
+      <div className="edit_modal_content" onClick={(e) => e.stopPropagation()}>
+        <div className="share_buttons">
+          <button className="share_button" onClick={copyTaskToClipboard}>
+            <img src="../images/copy.svg" alt="Copy" />
+          </button>
+          <button className="share_button" onClick={shareOnVK}>
+            <img src="../images/vk.svg" alt="VK" />
+          </button>
+          <button className="share_button" onClick={shareOnTelegram}>
+            <img src="../images/telegram.svg" alt="Telegram" />
+          </button>
+          <button className="share_button" onClick={shareOnWhatsApp}>
+            <img src="../images/whats.svg" alt="WhatsApp" />
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ShareManager;
+export default ShareModal;

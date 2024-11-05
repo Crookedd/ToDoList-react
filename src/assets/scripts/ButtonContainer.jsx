@@ -1,57 +1,26 @@
 import React, { useState } from 'react';
-import EditTaskModal from './EditTaskModal';
-import ShareModal from './ShareManager';
+import ShareImg from '../images/share.svg';
+import EditImg from '../images/edit.svg';
+import InfoImg from '../images/inf.svg';
 
-const ButtonContainer = ({ task, updateTask }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [isSharing, setIsSharing] = useState(false);
-  const [title, setTitle] = useState(task.title);
-  const [about, setAbout] = useState(task.about);
-
-  const handleMouseEnter = () => {
-    setIsVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsVisible(false);
-  };
-
-  const handleSave = () => {
-    updateTask({ ...task, title, about });
-    setIsEditing(false);
-  };
+const ButtonContainer = ({ task, isVisible, onEdit, onShare  }) => {
 
   return (
     <div
       className="button_container"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {isVisible && (
         <>
-          <button className="action_button" onClick={() => setIsSharing(true)}>
-            <img src="../assets/images/share.svg" alt="Share" />
+          <button className="action_button" onClick={onShare}>
+            <img src={ShareImg} alt="Share" />
           </button>
-          <button className="action_button" onClick={() => setIsEditing(true)}>
-            <img src="../assets/images/edit.svg" alt="Edit" />
+          <button className="action_button" onClick={onEdit}>
+            <img src={EditImg} alt="Edit" />
+          </button>
+          <button className="action_button">
+            <img src={InfoImg} alt="Info" />
           </button>
         </>
-      )}
-      {isEditing && (
-        <EditTaskModal 
-          task={task} 
-          onSave={handleSave} 
-          onCancel={() => setIsEditing(false)} 
-          setTitle={setTitle}
-          setAbout={setAbout}
-        />
-      )}
-      {isSharing && (
-        <ShareModal 
-          task={task} 
-          onClose={() => setIsSharing(false)} 
-        />
       )}
     </div>
   );
