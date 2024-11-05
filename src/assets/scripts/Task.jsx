@@ -4,7 +4,6 @@ const Task = ({ task, deleteTask }) => {
   const taskDiv = useRef(null);
 
   const handleDelete = () => {
-    // Открыть модальное окно подтверждения
     deleteTask(task.id, taskDiv.current);
   };
 

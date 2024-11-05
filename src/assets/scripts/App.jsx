@@ -5,6 +5,7 @@ import ConfirmationModal from './ConfirmationModal';
 import { loadTasks, saveTasks } from './localStorage';
 import '../styles/main.scss';
 
+
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
@@ -32,7 +33,7 @@ const App = () => {
     const updatedTasks = tasks.filter(task => task.id !== taskToDelete);
     setTasks(updatedTasks);
     saveTasks(updatedTasks);
-    setModalOpen(false); // Закрываем модальное окно
+    setModalOpen(false);
   };
 
   const cancelDeleteTask = () => {
@@ -41,9 +42,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <div className="header">
-        <TaskForm addTask={addTask} />
-      </div>
+      <TaskForm addTask={addTask} />
       <TaskList tasks={tasks} deleteTask={deleteTask} />
       {isModalOpen && (
         <ConfirmationModal
@@ -55,4 +54,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App; 

@@ -18,22 +18,24 @@ const TaskForm = ({ addTask }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        className="input title" 
-        placeholder="Title..." 
-        value={title} 
-        onChange={(e) => setTitle(e.target.value)} 
-      />
-      <input 
-        type="text" 
-        className="input about" 
-        placeholder="About..." 
-        value={about} 
-        onChange={(e) => setAbout(e.target.value)} 
-      />
-      <button type="submit" className="add_button">+</button>
+    <form onSubmit={handleSubmit} className="header">
+      <div className="text_container">
+        <input 
+          type="text" 
+          className="input title" 
+          placeholder="Title..." 
+          value={title} 
+          onChange={(e) => setTitle(e.target.value)} 
+        />
+        <input 
+          type="text" 
+          className="input about" 
+          placeholder="About..." 
+          value={about} 
+          onChange={(e) => setAbout(e.target.value)} 
+        />
+        </div>
+        <button type="submit" className="add_button">+</button>
     </form>
   );
 };
