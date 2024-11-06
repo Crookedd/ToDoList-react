@@ -1,4 +1,8 @@
 import React from 'react';
+import CopyImg from '../images/copy.svg';
+import VKImg from '../images/vk.svg';
+import TelegramImg from '../images/telegram.svg';
+import WhatsAppImg from '../images/whats.svg';
 
 const ShareModal = ({ task, onClose }) => {
   const copyTaskToClipboard = () => {
@@ -32,16 +36,16 @@ const ShareModal = ({ task, onClose }) => {
       <div className="edit_modal_content" onClick={(e) => e.stopPropagation()}>
         <div className="share_buttons">
           <button className="share_button" onClick={copyTaskToClipboard}>
-            <img src="../images/copy.svg" alt="Copy" />
+          <img src={CopyImg} alt="Copy" />
           </button>
           <button className="share_button" onClick={shareOnVK}>
-            <img src="../images/vk.svg" alt="VK" />
+          <img src={VKImg} alt="VK" />
           </button>
           <button className="share_button" onClick={shareOnTelegram}>
-            <img src="../images/telegram.svg" alt="Telegram" />
+            <img src={TelegramImg} alt="Telegram" />
           </button>
           <button className="share_button" onClick={shareOnWhatsApp}>
-            <img src="../images/whats.svg" alt="WhatsApp" />
+          <img src={WhatsAppImg} alt="WhatsApp" />
           </button>
         </div>
       </div>
