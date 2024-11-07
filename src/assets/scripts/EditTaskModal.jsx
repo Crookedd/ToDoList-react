@@ -4,7 +4,12 @@ const EditTaskModal = ({ task, onSave, onCancel }) => {
   const [title, setTitle] = useState(task.title);
   const [about, setAbout] = useState(task.about);
 
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.preventDefault();
+    if (!title || !about) {
+      alert("Пожалуйста, заполните оба поля!");
+      return;
+    }
     onSave({ ...task, title, about });
     onCancel();
   };
