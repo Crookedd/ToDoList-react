@@ -60,10 +60,21 @@ const App = () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   };
 
+  const onDragEnd = (result) => {
+    if (!result.destination) return;
+
+    const reorderedTasks = Array.from(tasks);
+    const [movedTask] = reorderedTasks.splice(result.source.index, 1);
+    reorderedTasks.splice(result.destination.index, 0, movedTask);
+
+    setTasks(reorderedTasks);
+    saveTasks(reorderedTasks);
+  };
+
   return (
     <div className="container">
       <TaskForm addTask={addTask} />
-      <TaskList tasks={tasks} deleteTask={deleteTask} updateTask={updateTask}/>
+      <TaskList tasks={tasks} deleteTask={deleteTask} updateTask={updateTask} onDragEnd={onDragEnd}/>
       {isModalOpen && (
         <ConfirmationModal
           onConfirm={confirmDeleteTask}
