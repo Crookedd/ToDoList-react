@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
-import ButtonContainer from './ButtonContainer';
-import EditTaskModal from '../Modals/EditTaskModal';
-import ShareModal from '../Modals/ShareModal';
+import React, { useState, useRef } from "react";
+import ButtonContainer from "./ButtonContainer";
+import EditTaskModal from "../Modals/EditTaskModal";
+import ShareModal from "../Modals/ShareModal";
 
 const Task = ({ task, deleteTask, updateTask }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -28,7 +28,6 @@ const Task = ({ task, deleteTask, updateTask }) => {
     setHideButtonsTimeout(timeout);
   };
 
-
   const handleDelete = () => {
     deleteTask(task.id, taskDiv.current);
   };
@@ -40,7 +39,7 @@ const Task = ({ task, deleteTask, updateTask }) => {
 
   return (
     <div
-      className={`task ${isExpanded ? 'expanded' : ''}`}
+      className={`task ${isExpanded ? "expanded" : ""}`}
       data-id={task.id}
       ref={taskDiv}
       onMouseEnter={handleMouseEnter}
@@ -69,10 +68,7 @@ const Task = ({ task, deleteTask, updateTask }) => {
         />
       )}
       {isShareModalOpen && (
-        <ShareModal
-          task={task}
-          onClose={() => setShareModalOpen(false)}
-        />
+        <ShareModal task={task} onClose={() => setShareModalOpen(false)} />
       )}
     </div>
   );

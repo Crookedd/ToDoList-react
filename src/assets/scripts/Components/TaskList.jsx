@@ -1,6 +1,6 @@
-import React from 'react';
-import Task from './Task';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import React from "react";
+import Task from "./Task";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const TaskList = ({ tasks, deleteTask, updateTask, onDragEnd }) => {
   return (
@@ -15,17 +15,27 @@ const TaskList = ({ tasks, deleteTask, updateTask, onDragEnd }) => {
           >
             {tasks.length === 0 && <hr className="top_line" />}
             {tasks.length === 0 ? (
-              <p className="no_tasks" id="noTasksMessage">No tasks</p>
+              <p className="no_tasks" id="noTasksMessage">
+                No tasks
+              </p>
             ) : (
               tasks.map((task, index) => (
-                <Draggable key={task.id} draggableId={task.id.toString()} index={index}>
+                <Draggable
+                  key={task.id}
+                  draggableId={task.id.toString()}
+                  index={index}
+                >
                   {(provided) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                     >
-                      <Task task={task} deleteTask={deleteTask} updateTask={updateTask} />
+                      <Task
+                        task={task}
+                        deleteTask={deleteTask}
+                        updateTask={updateTask}
+                      />
                     </div>
                   )}
                 </Draggable>

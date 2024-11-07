@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const EditTaskModal = ({ task, onSave, onCancel }) => {
   const [title, setTitle] = useState(task.title);
@@ -30,12 +30,16 @@ const EditTaskModal = ({ task, onSave, onCancel }) => {
             rows="15"
             placeholder="Max input..."
             value={about}
-            onChange={(e) => setAbout(e.target.value)}>
-          </textarea>
+            onChange={(e) => setAbout(e.target.value)}
+          ></textarea>
         </div>
         <div className="edit_modal_buttons">
-          <button className="cancel_button" onClick={onCancel}>Cancel</button>
-          <button className="save_button" onClick={handleSave}>Save</button>
+          <button className="cancel_button" onClick={onCancel}>
+            Cancel
+          </button>
+          <button className="save_button" onClick={handleSave}>
+            Save
+          </button>
         </div>
       </div>
     </div>

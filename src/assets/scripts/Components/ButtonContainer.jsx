@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import ShareImg from '../../images/share.svg';
-import EditImg from '../../images/edit.svg';
-import InfoImg from '../../images/inf.svg';
+import React, { useState } from "react";
+import ShareImg from "../../images/share.svg";
+import EditImg from "../../images/edit.svg";
+import InfoImg from "../../images/inf.svg";
 
-const ButtonContainer = ({ task, isVisible, onEdit, onShare  }) => {
-
+const ButtonContainer = ({ task, isVisible, onEdit, onShare }) => {
   return (
-    <div
-      className="button_container"
-    >
+    <div className="button_container">
       {isVisible && (
         <>
           <button className="action_button" onClick={onShare}>

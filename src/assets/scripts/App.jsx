@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import TaskForm from './Components/TaskForm';
-import TaskList from './Components/TaskList';
-import ConfirmationModal from './Modals/ConfirmationModal';
-import { loadTasks, saveTasks } from './data/localStorage';
-import '../styles/main.scss';
-
+import React, { useState, useEffect } from "react";
+import TaskForm from "./Components/TaskForm";
+import TaskList from "./Components/TaskList";
+import ConfirmationModal from "./Modals/ConfirmationModal";
+import { loadTasks, saveTasks } from "./data/localStorage";
+import "../styles/main.scss";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -30,7 +29,7 @@ const App = () => {
   };
 
   const confirmDeleteTask = () => {
-    const updatedTasks = tasks.filter(task => task.id !== taskToDelete);
+    const updatedTasks = tasks.filter((task) => task.id !== taskToDelete);
     setTasks(updatedTasks);
     saveTasks(updatedTasks);
     setModalOpen(false);
@@ -41,7 +40,7 @@ const App = () => {
   };
 
   const updateTask = (updatedTask) => {
-    const updatedTasks = tasks.map(task => 
+    const updatedTasks = tasks.map((task) =>
       task.id === updatedTask.id ? updatedTask : task
     );
     setTasks(updatedTasks);
@@ -74,7 +73,12 @@ const App = () => {
   return (
     <div className="container">
       <TaskForm addTask={addTask} />
-      <TaskList tasks={tasks} deleteTask={deleteTask} updateTask={updateTask} onDragEnd={onDragEnd}/>
+      <TaskList
+        tasks={tasks}
+        deleteTask={deleteTask}
+        updateTask={updateTask}
+        onDragEnd={onDragEnd}
+      />
       {isModalOpen && (
         <ConfirmationModal
           onConfirm={confirmDeleteTask}
@@ -85,4 +89,4 @@ const App = () => {
   );
 };
 
-export default App; 
+export default App;
