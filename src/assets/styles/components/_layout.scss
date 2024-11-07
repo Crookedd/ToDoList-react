@@ -37,6 +37,7 @@
 //Добавление задачи
 
 .task {
+  position: relative;
   background-color: $task_background;
   border: 1px solid $primary_color;
   height: 44px;

@@ -3,7 +3,7 @@ import ButtonContainer from './ButtonContainer';
 import EditTaskModal from './EditTaskModal';
 import ShareModal from './ShareModal';
 
-const Task = ({ task, deleteTask, updateTask}) => {
+const Task = ({ task, deleteTask, updateTask }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
@@ -28,8 +28,6 @@ const Task = ({ task, deleteTask, updateTask}) => {
     updateTask(updatedTask);
     setEditModalOpen(false);
   };
-
-  
 
   return (
     <div
