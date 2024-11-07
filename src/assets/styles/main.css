@@ -180,7 +180,7 @@ button:hover {
 }
 
 .task.expanded {
-  margin-top: 25px;
+  margin-top: 10px;
   margin-bottom: 50px;
   transition: margin-top 0.3s ease;
 }

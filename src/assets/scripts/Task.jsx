@@ -9,16 +9,25 @@ const Task = ({ task, deleteTask, updateTask }) => {
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [isShareModalOpen, setShareModalOpen] = useState(false);
   const taskDiv = useRef(null);
+  const [hideButtonsTimeout, setHideButtonsTimeout] = useState(null);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
     setIsExpanded(true);
+    if (hideButtonsTimeout) {
+      clearTimeout(hideButtonsTimeout);
+      setHideButtonsTimeout(null);
+    }
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
-    setIsExpanded(false);
+    const timeout = setTimeout(() => {
+      setIsHovered(false);
+      setIsExpanded(false);
+    }, 300);
+    setHideButtonsTimeout(timeout);
   };
+
 
   const handleDelete = () => {
     deleteTask(task.id, taskDiv.current);
