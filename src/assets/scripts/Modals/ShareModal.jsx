@@ -1,9 +1,8 @@
 import React from 'react';
-import CopyImg from '../images/copy.svg';
-import VKImg from '../images/vk.svg';
-import TelegramImg from '../images/telegram.svg';
-import WhatsAppImg from '../images/whats.svg';
-
+import CopyImg from '../../images/copy.svg';
+import VKImg from '../../images/vk.svg';
+import TelegramImg from '../../images/telegram.svg';
+import WhatsAppImg from '../../images/whats.svg';
 const ShareModal = ({ task, onClose }) => {
   const copyTaskToClipboard = () => {
     const taskText = `Задача: ${task.title}\nОписание: ${task.about}`;

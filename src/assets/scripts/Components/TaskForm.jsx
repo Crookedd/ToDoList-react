@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../styles/main.scss';
 
 const TaskForm = ({ addTask }) => {
   const [title, setTitle] = useState('');

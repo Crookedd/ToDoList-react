@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import TaskForm from './TaskForm';
-import TaskList from './TaskList';
-import ConfirmationModal from './ConfirmationModal';
-import { loadTasks, saveTasks } from './localStorage';
+import TaskForm from './Components/TaskForm';
+import TaskList from './Components/TaskList';
+import ConfirmationModal from './Modals/ConfirmationModal';
+import { loadTasks, saveTasks } from './data/localStorage';
 import '../styles/main.scss';
 
 
