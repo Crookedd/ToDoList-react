@@ -82,6 +82,11 @@ button:hover {
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 16px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: lighten($primary_color, 10%);
+  }
 }
 
 //добалвние поделиться
@@ -92,7 +97,7 @@ button:hover {
 }
 
 .share_button {
-  background-color: $task-background;
+  background-color: $task_background;
   border-radius: 50%;
   border: none;
   padding: 15px;
@@ -102,7 +107,11 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: lighten($task_background, 10%);
+  }
 }
 
 .share_button img {

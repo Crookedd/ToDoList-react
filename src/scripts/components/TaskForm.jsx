@@ -18,37 +18,31 @@ const TaskForm = ({ addTask }) => {
     setAbout("");
   };
 
-  const handleCloseErrorModal = () => {
-    setShowErrorModal(false);
-  };
-
   return (
     <>
       <form onSubmit={handleSubmit} className="header">
         <div className="text_container">
           <input
             type="text"
-            className="input title"
+            className={`input title ${!title ? 'error' : ''}`}
             placeholder="Title..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
             type="text"
-            className="input about"
+            className={`input about ${!about ? 'error' : ''}`}
             placeholder="About..."
             value={about}
             onChange={(e) => setAbout(e.target.value)}
           />
         </div>
-        <button type="submit" className="add_button">
-          +
-        </button>
+        <button type="submit" className="add_button">+</button>
       </form>
       {showErrorModal && (
         <ErrorModal
           message="Пожалуйста, заполните оба поля!"
-          onConfirm={handleCloseErrorModal}
+          onConfirm={() => setShowErrorModal(false)}
         />
       )}
     </>

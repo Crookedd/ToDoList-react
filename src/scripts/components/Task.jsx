@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import ButtonContainer from "./ButtonContainer";
 import EditTaskModal from "../modals/EditTaskModal";
 import ShareModal from "../modals/ShareModal";
@@ -8,28 +8,19 @@ const Task = ({ task, deleteTask, updateTask }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [isShareModalOpen, setShareModalOpen] = useState(false);
-  const taskDiv = useRef(null);
-  const [hideButtonsTimeout, setHideButtonsTimeout] = useState(null);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
     setIsExpanded(true);
-    if (hideButtonsTimeout) {
-      clearTimeout(hideButtonsTimeout);
-      setHideButtonsTimeout(null);
-    }
   };
 
   const handleMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      setIsHovered(false);
-      setIsExpanded(false);
-    }, 300);
-    setHideButtonsTimeout(timeout);
+    setIsHovered(false);
+    setIsExpanded(false);
   };
 
   const handleDelete = () => {
-    deleteTask(task.id, taskDiv.current);
+    deleteTask(task.id);
   };
 
   const handleEdit = (updatedTask) => {
@@ -40,8 +31,6 @@ const Task = ({ task, deleteTask, updateTask }) => {
   return (
     <div
       className={`task ${isExpanded ? "expanded" : ""}`}
-      data-id={task.id}
-      ref={taskDiv}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -75,3 +64,4 @@ const Task = ({ task, deleteTask, updateTask }) => {
 };
 
 export default Task;
+

@@ -7,11 +7,15 @@
 .input {
   height: 32px;
   font-size: 10px;
-  color: $text-color;
+  color: $text_color;
   background-color: $task_background;
   border: 1px solid $primary_color;
   border-radius: 4px;
   padding: 0 10px;
+
+  &.error {
+    border-color: red;
+  }
 }
 
 .textarea {

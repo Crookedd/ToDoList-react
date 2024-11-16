@@ -9,7 +9,6 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState(null);
-  const [taskDiv, setTaskDiv] = useState(null);
 
   useEffect(() => {
     const savedTasks = loadTasks();
@@ -22,9 +21,8 @@ const App = () => {
     saveTasks(newTasks);
   };
 
-  const deleteTask = (id, taskDiv) => {
+  const deleteTask = (id) => {
     setTaskToDelete(id);
-    setTaskDiv(taskDiv);
     setModalOpen(true);
   };
 
@@ -45,14 +43,6 @@ const App = () => {
     );
     setTasks(updatedTasks);
     saveTasks(updatedTasks);
-
-    // Обновление отображения задачи
-    if (taskDiv) {
-      const titleElement = taskDiv.querySelector(".title");
-      const aboutElement = taskDiv.querySelector(".about");
-      titleElement.textContent = updatedTask.title;
-      aboutElement.textContent = updatedTask.about;
-    }
   };
 
   const onDragEnd = (result) => {
