@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ShareImg from "../../images/share.svg";
-import EditImg from "../../images/edit.svg";
-import InfoImg from "../../images/inf.svg";
+import ShareImg from "/src/assets/images/share.svg";
+import EditImg from "/src/assets/images/edit.svg";
+import InfoImg from "/src/assets/images/inf.svg";
 
 const ButtonContainer = ({ task, isVisible, onEdit, onShare }) => {
   return (

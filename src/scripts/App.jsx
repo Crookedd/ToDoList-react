@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import TaskForm from "./Components/TaskForm";
-import TaskList from "./Components/TaskList";
-import ConfirmationModal from "./Modals/ConfirmationModal";
-import { loadTasks, saveTasks } from "./data/localStorage";
-import "../styles/main.scss";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+import ConfirmationModal from "./modals/ConfirmationModal";
+import { loadTasks, saveTasks } from "./localStorage/index";
+import "../assets/styles/main.scss";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -44,7 +44,7 @@ const App = () => {
       task.id === updatedTask.id ? updatedTask : task
     );
     setTasks(updatedTasks);
-    saveTasksToLocalStorage(updatedTasks);
+    saveTasks(updatedTasks);
 
     // Обновление отображения задачи
     if (taskDiv) {
@@ -53,10 +53,6 @@ const App = () => {
       titleElement.textContent = updatedTask.title;
       aboutElement.textContent = updatedTask.about;
     }
-  };
-
-  const saveTasksToLocalStorage = (tasks) => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
   };
 
   const onDragEnd = (result) => {

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import ButtonContainer from "./ButtonContainer";
-import EditTaskModal from "../Modals/EditTaskModal";
-import ShareModal from "../Modals/ShareModal";
+import EditTaskModal from "../modals/EditTaskModal";
+import ShareModal from "../modals/ShareModal";
 
 const Task = ({ task, deleteTask, updateTask }) => {
   const [isHovered, setIsHovered] = useState(false);
