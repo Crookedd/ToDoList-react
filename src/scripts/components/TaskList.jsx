@@ -9,15 +9,12 @@ const TaskList = ({ tasks, deleteTask, updateTask, onDragEnd }) => {
         {(provided) => (
           <div
             className="task_section"
-            id="taskSection"
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
             {tasks.length === 0 && <hr className="top_line" />}
             {tasks.length === 0 ? (
-              <p className="no_tasks" id="noTasksMessage">
-                No tasks
-              </p>
+              <p className="no_tasks">No tasks</p>
             ) : (
               tasks.map((task, index) => (
                 <Draggable

@@ -15,7 +15,7 @@ const EditTaskModal = ({ task, onSave, onCancel }) => {
   };
 
   return (
-    <div id="editModal" className="modal">
+    <div className="modal">
       <div className="edit_modal_content">
         <div className="text_container">
           <input
@@ -45,5 +45,6 @@ const EditTaskModal = ({ task, onSave, onCancel }) => {
     </div>
   );
 };
+
 
 export default EditTaskModal;

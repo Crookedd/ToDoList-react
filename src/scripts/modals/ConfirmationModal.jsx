@@ -2,7 +2,7 @@ import React from "react";
 
 const ConfirmationModal = ({ onConfirm, onCancel }) => {
   return (
-    <div id="confirmationModal" className="modal">
+    <div className="modal">
       <div className="modal_content">
         <h4>Delete this task?</h4>
         <div className="modal_buttons">
