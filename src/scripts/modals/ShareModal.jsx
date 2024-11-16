@@ -3,8 +3,11 @@ import CopyImg from "/src/assets/images/copy.svg";
 import VKImg from "/src/assets/images/vk.svg";
 import TelegramImg from "/src/assets/images/telegram.svg";
 import WhatsAppImg from "/src/assets/images/whats.svg";
+import ErrorModal from "./ErrorModal";
+import { useState } from "react";
 
 const ShareModal = ({ task, onClose }) => {
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   const shareLinks = [
     {
@@ -41,29 +44,42 @@ const ShareModal = ({ task, onClose }) => {
     navigator.clipboard
       .writeText(taskText)
       .then(() => {
-        alert("Задача скопирована в буфер обмена!");
+        setShowErrorModal(true);
       })
       .catch((err) => {
         console.error("Ошибка при копировании: ", err);
+        setShowErrorModal(true);
       });
   };
 
+  const handleCloseErrorModal = () => {
+    setShowErrorModal(false);
+  };
+
   return (
-    <div className="modal" onClick={onClose}>
-      <div className="edit_modal_content" onClick={(e) => e.stopPropagation()}>
-        <div className="share_buttons">
-          {shareLinks.map((link, index) => (
-            <button
-              key={index}
-              className="share_button"
-              onClick={link.onClick}
-            >
-              <img src={link.image} alt={link.name} />
-            </button>
-          ))}
+    <>
+      <div className="modal" onClick={onClose}>
+        <div className="edit_modal_content" onClick={(e) => e.stopPropagation()}>
+          <div className="share_buttons">
+            {shareLinks.map((link, index) => (
+              <button
+                key={index}
+                className="share_button"
+                onClick={link.onClick}
+              >
+                <img src={link.image} alt={link.name} />
+              </button>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+      {showErrorModal && (
+        <ErrorModal
+          message="Задача скопирована в буфер обмена."
+          onConfirm={handleCloseErrorModal}
+        />
+      )}
+    </>
   );
 };
 
