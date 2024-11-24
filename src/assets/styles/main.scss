@@ -1,8 +1,8 @@
-@import "./components/variables";
-@import "./components/modals";
-@import "./components/layout";
-@import "./components/buttons";
-@import "./components/text";
+@use "./components/variables" as vars; 
+@use "./components/modals" as modals;  
+@use "./components/layout" as layout;    
+@use "./components/buttons" as buttons; 
+@use "./components/text" as text;       
 
 @font-face {
   font-family: "Roboto";
@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: center;
   height: 100vh;
-  background-color: $background_color;
+  background-color: vars.$background_color;
 }
 
 @media (max-width: 600px) {
@@ -29,4 +29,3 @@ body {
     align-items: flex-start;
   }
 }
-

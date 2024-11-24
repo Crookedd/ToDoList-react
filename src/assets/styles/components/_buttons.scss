@@ -1,10 +1,13 @@
+@use "./variables" as vars;
+@use "sass:color";
+
 .add_button {
-  background-color: $background_color;
-  color: $primary_color;
+  background-color: vars.$background_color;
+  color: vars.$primary_color;
   font-size: 40px;
   width: 70px;
   height: 70px;
-  border-color: $primary_color;
+  border-color: vars.$primary_color;
   border-radius: 4px;
   padding: 8px 12px;
   cursor: pointer;
@@ -14,10 +17,10 @@
   width: 32px;
   height: 32px;
   font-size: 25px;
-  background-color: $background_color;
-  border-color: $primary_color;
+  background-color: vars.$background_color;
+  border-color: vars.$primary_color;
   border-radius: 4px;
-  color: $primary-color;
+  color: vars.$primary_color; 
   cursor: pointer;
 }
 
@@ -26,8 +29,8 @@
 .save_button {
   width: 64px;
   height: 30px;
-  background-color: $background_color;
-  border-color: $primary_color;
+  background-color: vars.$background_color;
+  border-color: vars.$primary_color;
   border-radius: 4px;
   padding: 5px;
   margin: 0 10px;
@@ -36,12 +39,10 @@
 }
 
 button:hover {
-  background-color: $primary_color;
-  color: $text-color;
+  background-color: vars.$primary_color;
+  color: vars.$text_color; 
   transition: all 0.3s ease;
 }
-
-//добавление кнопок поделиться, информация,редактирование
 
 .button_container {
   position: absolute;
@@ -53,7 +54,6 @@ button:hover {
   gap: 10px;
   transition: all 0.3s ease;
 }
-
 
 .mb-12 {
   margin-bottom: 12px;
@@ -72,8 +72,8 @@ button:hover {
 .action_button {
   width: 36px;
   height: 36px;
-  background-color: $task_background;
-  border: 1px solid $primary_color;
+  background-color: vars.$task_background;
+  border: 1px solid vars.$primary_color;
   color: white;
   cursor: pointer;
   display: flex;
@@ -85,11 +85,10 @@ button:hover {
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: lighten($primary_color, 10%);
+    background-color: color.adjust(vars.$primary_color, $lightness: 10%);
   }
 }
 
-//добалвние поделиться
 .share_buttons {
   display: flex;
   justify-content: space-around;
@@ -97,7 +96,7 @@ button:hover {
 }
 
 .share_button {
-  background-color: $task_background;
+  background-color: vars.$task_background;
   border-radius: 50%;
   border: none;
   padding: 15px;
@@ -110,7 +109,7 @@ button:hover {
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: lighten($task_background, 10%);
+    background-color: color.adjust(vars.$task_background, $lightness: 10%);
   }
 }
 

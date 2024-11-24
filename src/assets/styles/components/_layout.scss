@@ -1,3 +1,6 @@
+@use "./variables" as vars;
+@use "sass:color";
+
 .container {
   width: 600px;
   height: 100%;
@@ -20,11 +23,11 @@
 
 .top_line {
   width: 64px;
-  border: 2px solid $primary_color;
+  border: 2px solid vars.$primary_color;
 }
 
 .no_tasks {
-  color: $text-color;
+  color: vars.$text_color; // Исправлено: убрано тире
   font-size: 23px;
   margin: 10px 0;
   display: flex;
@@ -33,17 +36,15 @@
   flex-direction: column;
 }
 
-//Добавление задачи
-
 .task {
   position: relative;
-  background-color: $task_background;
-  border: 1px solid $primary_color;
+  background-color: vars.$task_background;
+  border: 1px solid vars.$primary_color;
   height: 44px;
   padding: 10px;
   margin: 10px 0;
   border-radius: 5px;
-  color: $font_color;
+  color: vars.$font_color; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,11 +53,11 @@
   &.expanded {
     margin-top: 10px;
     margin-bottom: 50px;
-    background-color: lighten($task_background, 5%);
+    background-color: color.adjust(vars.$task_background, $lightness: 5%); 
   }
 
   &:hover {
-    background-color: lighten($task_background, 10%);
+    background-color: color.adjust(vars.$task_background, $lightness: 10%);
   }
 }
 
