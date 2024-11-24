@@ -1,35 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useDispatch, useSelector } from 'react-redux'; 
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import ConfirmationModal from "./modals/ConfirmationModal";
-import { loadTasks, saveTasks } from "./localStorage/index";
+import { addTask, deleteTask, updateTask, reorderTasks } from './store/tasksSlice';
 import "../assets/styles/main.scss";
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [taskToDelete, setTaskToDelete] = useState(null);
+  const dispatch = useDispatch();
+  const tasks = useSelector((state) => state.tasks.tasks);
+  const [isModalOpen, setModalOpen] = React.useState(false);
+  const [taskToDelete, setTaskToDelete] = React.useState(null);
 
-  useEffect(() => {
-    const savedTasks = loadTasks();
-    setTasks(savedTasks);
-  }, []);
-
-  const addTask = (task) => {
-    const newTasks = [...tasks, task];
-    setTasks(newTasks);
-    saveTasks(newTasks);
+  const handleAddTask = (task) => {
+    dispatch(addTask(task));
   };
 
-  const deleteTask = (id) => {
+  const handleDeleteTask = (id) => {
     setTaskToDelete(id);
     setModalOpen(true);
   };
 
   const confirmDeleteTask = () => {
-    const updatedTasks = tasks.filter((task) => task.id !== taskToDelete);
-    setTasks(updatedTasks);
-    saveTasks(updatedTasks);
+    dispatch(deleteTask(taskToDelete));
     setModalOpen(false);
   };
 
@@ -37,32 +30,22 @@ const App = () => {
     setModalOpen(false);
   };
 
-  const updateTask = (updatedTask) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === updatedTask.id ? updatedTask : task
-    );
-    setTasks(updatedTasks);
-    saveTasks(updatedTasks);
+  const handleUpdateTask = (updatedTask) => {
+    dispatch(updateTask(updatedTask));
   };
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
-
-    const reorderedTasks = Array.from(tasks);
-    const [movedTask] = reorderedTasks.splice(result.source.index, 1);
-    reorderedTasks.splice(result.destination.index, 0, movedTask);
-
-    setTasks(reorderedTasks);
-    saveTasks(reorderedTasks);
+    dispatch(reorderTasks({ sourceIndex: result.source.index, destinationIndex: result.destination.index }));
   };
 
   return (
     <div className="container">
-      <TaskForm addTask={addTask} />
+      <TaskForm addTask={handleAddTask} />
       <TaskList
         tasks={tasks}
-        deleteTask={deleteTask}
-        updateTask={updateTask}
+        deleteTask={handleDeleteTask}
+        updateTask={handleUpdateTask}
         onDragEnd={onDragEnd}
       />
       {isModalOpen && (

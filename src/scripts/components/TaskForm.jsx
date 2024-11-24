@@ -1,7 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { addTask } from '../store/tasksSlice';
 import ErrorModal from "../modals/ErrorModal";
 
-const TaskForm = ({ addTask }) => {
+const TaskForm = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -13,7 +16,7 @@ const TaskForm = ({ addTask }) => {
       return;
     }
     const newTask = { id: Date.now(), title, about };
-    addTask(newTask);
+    dispatch(addTask(newTask));
     setTitle("");
     setAbout("");
   };
@@ -41,7 +44,7 @@ const TaskForm = ({ addTask }) => {
       </form>
       {showErrorModal && (
         <ErrorModal
-          message="Пожалуйста, заполните оба поля!"
+          message="Заполните оба поля!"
           onConfirm={() => setShowErrorModal(false)}
         />
       )}

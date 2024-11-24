@@ -1,36 +1,36 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
 import ButtonContainer from "./ButtonContainer";
 import EditTaskModal from "../modals/EditTaskModal";
 import ShareModal from "../modals/ShareModal";
+import { deleteTask, updateTask } from '../store/tasksSlice';
 
-const Task = ({ task, deleteTask, updateTask }) => {
+const Task = ({ task, onDelete}) => {
+  const dispatch = useDispatch();
   const [isHovered, setIsHovered] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [isShareModalOpen, setShareModalOpen] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    setIsExpanded(true);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setIsExpanded(false);
   };
 
   const handleDelete = () => {
-    deleteTask(task.id);
+    onDelete(task.id);
   };
 
   const handleEdit = (updatedTask) => {
-    updateTask(updatedTask);
+    dispatch(updateTask(updatedTask));
     setEditModalOpen(false);
   };
 
   return (
     <div
-      className={`task ${isExpanded ? "expanded" : ""}`}
+      className={`task ${isHovered ? "expanded" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
