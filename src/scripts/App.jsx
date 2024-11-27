@@ -34,10 +34,6 @@ const App = () => {
     dispatch(updateTask(updatedTask));
   };
 
-  const onDragEnd = (result) => {
-    if (!result.destination) return;
-    dispatch(reorderTasks({ sourceIndex: result.source.index, destinationIndex: result.destination.index }));
-  };
 
   return (
     <div className="container">
@@ -46,7 +42,6 @@ const App = () => {
         tasks={tasks}
         deleteTask={handleDeleteTask}
         updateTask={handleUpdateTask}
-        onDragEnd={onDragEnd}
       />
       {isModalOpen && (
         <ConfirmationModal
