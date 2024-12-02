@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import ButtonContainer from "./ButtonContainer";
-import EditTaskModal from "../modals/EditTaskModal";
-import ShareModal from "../modals/ShareModal";
-import { deleteTask, updateTask } from '../store/tasksSlice';
+import EditTaskModal from "./modals/EditTaskModal";
+import ShareModal from "./modals/ShareModal";
+import { deleteTask, updateTask } from '../../store/tasksSlice';
 
 const Task = ({ task, onDelete}) => {
   const dispatch = useDispatch();

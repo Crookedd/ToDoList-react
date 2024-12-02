@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux'; 
-import TaskForm from "./components/TaskForm";
-import TaskList from "./components/TaskList";
-import ConfirmationModal from "./modals/ConfirmationModal";
+import TaskForm from "./scripts/components/TaskForm";
+import TaskList from "./scripts/components/TaskList";
+import ConfirmationModal from "./scripts/components/modals/ConfirmationModal";
 import { addTask, deleteTask, updateTask, reorderTasks } from './store/tasksSlice';
-import "../assets/styles/main.scss";
+import "./assets/styles/main.scss";
 
 const App = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import React from "react";
 import Task from "./Task";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useDispatch } from 'react-redux';
-import { reorderTasks } from '../store/tasksSlice';
+import { reorderTasks } from '../../store/tasksSlice';
 
 const TaskList = ({ tasks, deleteTask }) => {
   const dispatch = useDispatch();
