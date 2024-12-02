@@ -59,7 +59,10 @@ const ShareModal = ({ task, onClose }) => {
   return (
     <>
       <div className="modal" onClick={onClose}>
-        <div className="edit_modal_content" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="edit_modal_content"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="share_buttons">
             {shareLinks.map((link, index) => (
               <button

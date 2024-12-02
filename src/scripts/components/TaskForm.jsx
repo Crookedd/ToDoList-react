@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { addTask } from '../../store/tasksSlice';
+import { useDispatch } from "react-redux";
+import { addTask } from "../../store/tasksSlice";
 import ErrorModal from "./modals/ErrorModal";
 
 const TaskForm = () => {
@@ -27,20 +27,22 @@ const TaskForm = () => {
         <div className="text_container">
           <input
             type="text"
-            className={`input title ${!title ? 'error' : ''}`}
+            className={`input title ${!title ? "error" : ""}`}
             placeholder="Title..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
             type="text"
-            className={`input about ${!about ? 'error' : ''}`}
+            className={`input about ${!about ? "error" : ""}`}
             placeholder="About..."
             value={about}
             onChange={(e) => setAbout(e.target.value)}
           />
         </div>
-        <button type="submit" className="add_button">+</button>
+        <button type="submit" className="add_button">
+          +
+        </button>
       </form>
       {showErrorModal && (
         <ErrorModal

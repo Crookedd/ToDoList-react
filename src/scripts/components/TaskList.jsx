@@ -1,15 +1,20 @@
 import React from "react";
 import Task from "./Task";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { useDispatch } from 'react-redux';
-import { reorderTasks } from '../../store/tasksSlice';
+import { useDispatch } from "react-redux";
+import { reorderTasks } from "../../store/tasksSlice";
 
 const TaskList = ({ tasks, deleteTask }) => {
   const dispatch = useDispatch();
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
-    dispatch(reorderTasks({ sourceIndex: result.source.index, destinationIndex: result.destination.index }));
+    dispatch(
+      reorderTasks({
+        sourceIndex: result.source.index,
+        destinationIndex: result.destination.index,
+      })
+    );
   };
 
   return (

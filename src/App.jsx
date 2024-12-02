@@ -1,9 +1,14 @@
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from "react-redux";
 import TaskForm from "./scripts/components/TaskForm";
 import TaskList from "./scripts/components/TaskList";
 import ConfirmationModal from "./scripts/components/modals/ConfirmationModal";
-import { addTask, deleteTask, updateTask, reorderTasks } from './store/tasksSlice';
+import {
+  addTask,
+  deleteTask,
+  updateTask,
+  reorderTasks,
+} from "./store/tasksSlice";
 import "./assets/styles/main.scss";
 
 const App = () => {
@@ -33,7 +38,6 @@ const App = () => {
   const handleUpdateTask = (updatedTask) => {
     dispatch(updateTask(updatedTask));
   };
-
 
   return (
     <div className="container">

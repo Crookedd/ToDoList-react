@@ -6,7 +6,9 @@ const ErrorModal = ({ message, onConfirm }) => {
       <div className="modal_content">
         <p>{message}</p>
         <div className="modal_buttons">
-          <button className="confirm_button" onClick={onConfirm}>OK</button>
+          <button className="confirm_button" onClick={onConfirm}>
+            OK
+          </button>
         </div>
       </div>
     </div>

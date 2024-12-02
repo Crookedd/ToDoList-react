@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { loadTasks, saveTasks } from '../localStorage/index';
+import { createSlice } from "@reduxjs/toolkit";
+import { loadTasks, saveTasks } from "../localStorage/index";
 
 const initialState = {
   tasks: loadTasks(),
 };
 
 const tasksSlice = createSlice({
-  name: 'tasks',
+  name: "tasks",
   initialState,
   reducers: {
     addTask: (state, action) => {
@@ -14,11 +14,13 @@ const tasksSlice = createSlice({
       saveTasks(state.tasks);
     },
     deleteTask: (state, action) => {
-      state.tasks = state.tasks.filter(task => task.id !== action.payload);
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload);
       saveTasks(state.tasks);
     },
     updateTask: (state, action) => {
-      const index = state.tasks.findIndex(task => task.id === action.payload.id);
+      const index = state.tasks.findIndex(
+        (task) => task.id === action.payload.id
+      );
       if (index !== -1) {
         state.tasks[index] = action.payload;
         saveTasks(state.tasks);
@@ -33,6 +35,7 @@ const tasksSlice = createSlice({
   },
 });
 
-export const { addTask, deleteTask, updateTask, reorderTasks } = tasksSlice.actions;
+export const { addTask, deleteTask, updateTask, reorderTasks } =
+  tasksSlice.actions;
 
 export default tasksSlice.reducer;

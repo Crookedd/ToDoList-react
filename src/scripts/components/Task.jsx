@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import ButtonContainer from "./ButtonContainer";
 import EditTaskModal from "./modals/EditTaskModal";
 import ShareModal from "./modals/ShareModal";
-import { deleteTask, updateTask } from '../../store/tasksSlice';
+import { deleteTask, updateTask } from "../../store/tasksSlice";
 
-const Task = ({ task, onDelete}) => {
+const Task = ({ task, onDelete }) => {
   const dispatch = useDispatch();
   const [isHovered, setIsHovered] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
@@ -64,4 +64,3 @@ const Task = ({ task, onDelete}) => {
 };
 
 export default Task;
-
