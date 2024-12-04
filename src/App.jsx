@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TaskForm from "./scripts/components/TaskForm";
-import TaskList from "./scripts/components/TaskList";
-import ConfirmationModal from "./scripts/components/modals/ConfirmationModal";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+import ConfirmationModal from "./components/modals/ConfirmationModal";
 import {
   addTask,
   deleteTask,

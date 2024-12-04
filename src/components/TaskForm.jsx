@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTask } from "../../store/tasksSlice";
+import { addTask } from "../store/tasksSlice";
 import ErrorModal from "./modals/ErrorModal";
 
 const TaskForm = () => {
